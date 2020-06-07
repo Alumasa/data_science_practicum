@@ -84,3 +84,18 @@ GROUP BY
     date_upd;
 
 -- SELECT * FROM products_data_all;
+
+SELECT
+    date_upd::date AS update_date,
+    category,
+    COUNT(name) AS name_cnt
+FROM
+    products_data_all
+WHERE
+    date_upd::date = '2019-06-05'
+GROUP BY
+    update_date,
+    category
+ORDER BY
+    name_cnt;
+
