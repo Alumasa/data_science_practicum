@@ -112,3 +112,20 @@ FROM
 		trunc_date) AS SUBQ
 GROUP BY
     week_number-- write your code here
+
+SELECT 
+    AVG(price) AS avg_price--write your code here
+FROM 
+	products_stores
+WHERE
+    date_upd='2019-06-01' AND
+    id_product IN
+    (SELECT 
+         id_product
+    FROM
+         products
+    WHERE
+         (name LIKE '%Moo%') AND 
+         (category = 'milk'));
+
+--SELECT * FROM products_stores LIMIT 5;
